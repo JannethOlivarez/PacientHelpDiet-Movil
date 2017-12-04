@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     EditText txt_Email,txt_Password;
     FirebaseAuth.AuthStateListener mAuthListener;
-    Fise
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
