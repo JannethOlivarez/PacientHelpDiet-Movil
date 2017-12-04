@@ -3,6 +3,7 @@ package diet.help.pacient.pacienthelpdiet;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     EditText txt_Email,txt_Password;
     FirebaseAuth.AuthStateListener mAuthListener;
+    CardView btn_Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         txt_Email=(EditText) findViewById(R.id.txt_email);
         txt_Password=(EditText) findViewById(R.id.txt_password);
+        btn_Login=(CardView) findViewById(R.id.btn_login);
         mAuthListener= new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -36,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+        btn_Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Login(v);
+            }
+        });
     }
 
     public void Login(View view){
